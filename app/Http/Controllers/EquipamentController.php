@@ -22,9 +22,15 @@ class EquipamentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(EquipamentRequest $request)
     {
-        //
+
+        $data = new Equipament;
+        $this->validate($request, $data->rules, $data->messages);
+        $result = $data->create($request);
+      	
+      	return $result;
+
     }
 
     /**

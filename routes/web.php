@@ -24,6 +24,5 @@ Route::group( [ 'middleware' => 'auth'], function()
 {
         Route::view('/home', 'home')->name('home');   
         Route::view('/equipamentos', 'service.equipament')->name('equipament');
+        Route::post('/equipamentos/cadastrar', 'EquipamentsController@create')->name('cadastrar');
 });
-
-Route::resource('equipament', 'EquipamentController')->middleware('auth');

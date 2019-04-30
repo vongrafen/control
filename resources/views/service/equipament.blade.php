@@ -11,7 +11,8 @@
   </div>
   <!-- /.box-header -->
   <!-- form start -->
-  <form role="form">
+  <form action="cadastrar" method="post" role="form">
+      {!! csrf_field() !!}
     <div class="box-body">
         <div class="form-row">
             <div class="col-md-1">
