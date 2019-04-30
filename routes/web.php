@@ -25,3 +25,5 @@ Route::group( [ 'middleware' => 'auth'], function()
         Route::view('/home', 'home')->name('home');   
         Route::view('/equipamentos', 'service.equipament')->name('equipament');
 });
+
+Route::resource('equipament', 'EquipamentController')->middleware('auth');

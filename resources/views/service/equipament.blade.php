@@ -5,57 +5,208 @@
 @section('content')
 <link rel="stylesheet" href="css/main.css">
 
-<div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">Cadastro de Equipamentos</h3>
-        </div>
-        <!-- /.box-header -->
-        <!-- form start -->
-        <form role="form">
-          <div class="box-body">
-
-            <div class="form-group">
+<div class="box box-success">
+  <div class="box-header with-border">
+    <h3 class="box-title">Cadastro de Equipamentos</h3>
+  </div>
+  <!-- /.box-header -->
+  <!-- form start -->
+  <form role="form">
+    <div class="box-body">
+        <div class="form-row">
+            <div class="col-md-1">
               <label for="patrimony">Patrimônio</label>
-              <input type="patrimony" class="form-control" id="patrimony" placeholder="Ex.: 000000">
+              <input type="text" class="form-control" id="patrimony" placeholder="Ex.: 000000">
             </div>
 
-            <div class="form-group">
+            <div class="col-md-2">
+                <label for="name">Nome do Equipamento</label>
+                <input type="text" class="form-control" id="name" placeholder="Ex.: H-TI-14">
+            </div>
+
+            <div class="col-md-2">
+                <label for="so">Sistema Operacional</label>
+                <select type="text" class="form-control" id="so" >
+                  <option>Terminal Service</option>
+                  <option>Windows XP</option>
+                  <option>Windows 7</option>
+                  <option>Windows 8</option>
+                  <option>Windows 10</option>
+                </select>
+              </div>
+
+              <div class="col-md-2">
+                  <label for="arquiteture">Sistema Operacional</label>
+                  <select type="text" class="form-control" id="arquiteture" >
+                    <option>x32</option>
+                    <option>x64</option>
+                  </select>
+              </div>
+
+            <div class="col-md-2">
+                <label for="service_tag">ServiceTag</label>
+                <input type="text" class="form-control" id="service_tag" placeholder="Ex.: NCS2280">
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="partnumber">Partnumber</label>
+                <input type="text" class="form-control" id="partnumber" placeholder="Ex.: 4568NZH2233NN">
+            </div>
+        </div>
+
+        <div class="form-row">
+
+            <div class="col-md-2">
+                <label for="departament">Setor</label>
+                <input type="text" class="form-control" id="departament" placeholder="Ex.: Medicina Preventiva">
+              </div>
+
+            <div class="col-md-2">
+                <label for="user">Usuário</label>
+                <input type="text" class="form-control" id="user" placeholder="Ex.: usuario.sobrenome">
+              </div>
+
+            <div class="col-md-4">
               <label for="pc_brand">Fabricante</label>
-              <input type="pc_brand" class="form-control" id="pc_brand" placeholder="Ex.: Dell, HP...">
+              <input type="text" class="form-control" id="pc_brand" placeholder="Ex.: Dell, HP...">
             </div>
 
-            <div class="form-group">
+            <div class="form-group col-md-4">
               <label for="pc_model">Modelo</label>
-              <input type="pc_model" class="form-control" id="pc_model" placeholder="Ex.: VOSTRO 230S">
-            </div>
-            
-            <div class="form-group">
-              <label for="service_tag">ServiceTag</label>
-              <input type="service_tag" class="form-control" id="service_tag" placeholder="Ex.: NCS2280">
+              <input type="text" class="form-control" id="pc_model" placeholder="Ex.: VOSTRO 230S">
             </div>
 
-            <div class="form-group">
-              <label for="partnumber">Partnumber</label>
-              <input type="partnumber" class="form-control" id="partnumber" placeholder="Ex.: 4568NZH2233NN">
-            </div>
+        </div>           
+    </div>
+  
 
-            <div class="form-row">
-              <div class="col-md-6">
-                <label for="proc">Processador</label>
-                <input type="proc" class="form-control" id="proc" placeholder="Ex.: I5-7500">
-              </div>
-              <div class="form-group col-md-6">
-                  <label for="proc_hz">Mhz</label>
-                  <input type="proc_hz" class="form-control" id="proc_hz" placeholder="Ex.: 3.30">
-              </div>
-            </div>
-      
-          </div>
-          <!-- /.box-body -->
-
-          <div class="box-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </form>
+  <div class="box">
+    
+      <div class="box-header with-border">
+        <h3 class="box-title">Processador</h3>
       </div>
+      
+
+        <div class="box-body">
+          <div class="form-row">
+    
+              <div class="col-md-4">
+                <label for="proc_brand">Fabricante</label>
+                <input type="proc_brand" class="form-control" id="proc_brand" placeholder="Ex.: Intel, AMD...">
+              </div>
+    
+              <div class="col-md-4">
+                  <label for="proc">Modelo</label>
+                  <input type="proc" class="form-control" id="proc" placeholder="Ex.: I5-7500">
+              </div>
+    
+              <div class="form-group col-md-4">
+                <label for="proc_hz">Velocidade</label>
+                <input type="proc_hz" class="form-control" id="proc_hz" placeholder="Ex.: 3.30">
+              </div>
+    
+          </div>
+
+    </div>
+
+  <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Memória</h3>
+        </div>
+
+          <div class="box-body">
+            <div class="form-row">
+      
+                <div class="col-md-3">
+                    <label for="memory">Tamanho</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Ex.: 4, 8, 16, 32" id="memory" aria-describedby="teste">
+                        <div class="input-group-addon">
+                            <span class="input-group-text" id="memory">GB's</span>
+                        </div>
+                    </div>
+                </div>
+      
+                <div class="col-md-2">
+                    <label for="memory_ddr">Tipo</label>
+                    <select type="text" class="form-control" id="memory_ddr" >
+                      <option>DDR</option>
+                      <option>DDR1</option>
+                      <option>DDR2</option>
+                      <option>DDR3</option>
+                      <option>DDR4</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-3">
+                    <label for="memory_frequency">Frequência</label>
+                    <div class="input-group">
+                    <input type="text" class="form-control" id="memory_frequency" placeholder="Ex.: 1333">
+                    <div class="input-group-addon">
+                        <span class="input-group-text" id="memory_frequency">Ghz</span>
+                    </div>
+                    </div>
+                  </div>
+
+                <div class="col-md-2">
+                      <label for="memory_slots">Nº de Slots</label>
+                      <select type="text" class="form-control" id="memory_slots">
+                          <option>2</option>
+                          <option>4</option>
+                      </select>
+                </div>
+
+                <div class="form-group col-md-1">
+                  <label for="memory_slots">Ocupados</label>
+                  <select type="text" class="form-control" id="memory_slots">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                  </select>
+                </div>
+
+            </div>
+            </div>
+  </div>
+
+  <div class="box">
+
+        <div class="box-header with-border">
+          <h3 class="box-title">Disco</h3>
+        </div>
+        
+
+          <div class="box-body">
+            <div class="form-row">
+      
+                <div class="col-md-2">
+                    <label for="disk">Tamanho</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Ex.: 230" id="disk" aria-describedby="disk">
+                        <div class="input-group-addon">
+                            <span class="input-group-text" id="memory">GB's</span>
+                        </div>
+                    </div>
+                </div>
+      
+                <div class="col-md-1">
+                    <label for="disk_type">Tipo</label>
+                    <select type="text" class="form-control" id="disk_type">
+                      <option>HDD</option>
+                      <option>SSD</option>
+                    </select>
+                </div>
+
+            </div>
+          </div>
+  </div>
+
+      <div class="box-body">            
+        <button type="submit" class="btn btn-success mb-2">Salvar</button>    
+      </div>
+
+      </form>
+</div>
+
 @stop
