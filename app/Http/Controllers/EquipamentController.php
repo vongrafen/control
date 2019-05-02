@@ -14,7 +14,9 @@ class EquipamentController extends Controller
      */
     public function index()
     {
-        //
+        $equipament = Equipament::all();
+
+        return view('equip.index', ['resultado' => $equipament]);
     }
 
     /**
@@ -22,15 +24,20 @@ class EquipamentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(EquipamentRequest $request)
+    public function create(Request $request, Equipament $equipament)
     {
+        try{
+            $equipament->create($request->all());
+            
+            if ($validate) {
+                return back()->with('Sucesso','Equipamento cadastrado com Sucesso');
+            }    
 
-        $data = new Equipament;
-        $this->validate($request, $data->rules, $data->messages);
-        $result = $data->create($request);
-      	
-      	return $result;
+        } catch(\Illuminate\Database\QueryException $e) {
 
+            return back()->with('error','ERRO: Ops! Algo deu errado!');
+
+        }  
     }
 
     /**

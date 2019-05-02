@@ -23,6 +23,7 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::group( [ 'middleware' => 'auth'], function()
 {
         Route::view('/home', 'home')->name('home');   
-        Route::view('/equipamentos', 'service.equipament')->name('equipament');
-        Route::post('/equipamentos/cadastrar', 'EquipamentsController@create')->name('cadastrar');
+        Route::view('/equipamentos', 'equip.register')->name('equipament');
+        Route::post('/equipamentos', 'EquipamentController@create')->name('cadastrar');
+        Route::get('/index', 'EquipamentController@index')->name('index');
 });
