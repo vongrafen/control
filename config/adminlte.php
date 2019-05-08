@@ -120,6 +120,11 @@ return [
             'url'  => '/home',
         ],
         [
+            'text' => 'Equipamentos',
+            'icon' => 'cube',
+            'url'  => '/index',
+        ],
+        [
             'text'    => 'Cadastro',
             'icon'    => 'folder-open',
             'submenu' => [
@@ -127,6 +132,11 @@ return [
                     'text' => 'Computadores',
                     'icon' => 'desktop',
                     'url'  => '/equipamentos',
+                ],
+                [
+                    'text' => 'Setores',
+                    'icon' => 'briefcase',
+                    'url'  => '/departamentos',
                 ],
             ],
         ],

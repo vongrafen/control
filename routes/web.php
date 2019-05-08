@@ -26,4 +26,8 @@ Route::group( [ 'middleware' => 'auth'], function()
         Route::view('/equipamentos', 'equip.register')->name('equipament');
         Route::post('/equipamentos', 'EquipamentController@create')->name('cadastrar');
         Route::get('/index', 'EquipamentController@index')->name('index');
+
+        Route::view('/departamentos', 'departament.register')->name('departament');
+        Route::post('/departamentos', 'DepartamentController@create')->name('registerDepartament');
+        Route::get('/departamentos', 'DepartamentController@index')->name('showDepartament');
 });

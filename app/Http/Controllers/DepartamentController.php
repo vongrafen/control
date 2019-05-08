@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Equipament;
+use App\Departament;
 use Illuminate\Http\Request;
 
-class EquipamentController extends Controller
+class DepartamentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class EquipamentController extends Controller
      */
     public function index()
     {
-        $equipament = Equipament::all();
+        $departament = Departament::all();
 
-        return view('equip.index', ['resultado' => $equipament]);
+        return view('departament.register', ['result' => $departament]);
     }
 
     /**
@@ -24,17 +24,12 @@ class EquipamentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request, Equipament $equipament)
+    public function create(Request $request, Departament $departament)
     {
-        try{
-            $equipament->create($request->all());
-            
-            if ($validate) {
-                return back()->with('Sucesso','Equipamento cadastrado com Sucesso');
-            }    
-        } catch(\Illuminate\Database\QueryException $e) {
-            return back()->with('error','ERRO: Ops! Algo deu errado!');
-        }  
+
+        $departament->create($request->all()); 
+        return view('showDepartament');
+
     }
 
     /**
@@ -51,10 +46,10 @@ class EquipamentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Equipament  $equipament
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Equipament $equipament)
+    public function show($id)
     {
         //
     }
@@ -62,10 +57,10 @@ class EquipamentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Equipament  $equipament
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Equipament $equipament)
+    public function edit($id)
     {
         //
     }
@@ -74,10 +69,10 @@ class EquipamentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Equipament  $equipament
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Equipament $equipament)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -85,10 +80,10 @@ class EquipamentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Equipament  $equipament
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Equipament $equipament)
+    public function destroy($id)
     {
         //
     }
