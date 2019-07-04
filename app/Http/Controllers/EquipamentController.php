@@ -32,14 +32,7 @@ class EquipamentController extends Controller
      */
     public function create(Request $request, Equipament $equipament)
     {
-        $equipament-> Equipament::all();
-        $departament = Departament::SELECT('equipaments.*','departaments.name as departaments')
-        ->LEFTJOIN('departaments', 'equipaments.departament_id', '=', 'departaments.id' )   
-        ->first();
-
-        return view('cadastrar')
-            ->with('departament',  $departament);
-        
+        $equipament->create($request->all());
     }
 
     /**

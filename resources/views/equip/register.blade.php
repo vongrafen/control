@@ -59,14 +59,7 @@
 
             <div class="col-md-2">
                 <label for="departament">Setor</label>
-                <select class="form-control"  name="departament" id="departament">
-                    <option value="">Selecione um Paciente</option>       
-                    @foreach ($departaments as $dp)
-                        
-                    @endforeach
-                    <option required value="{{ '#' }}">{{ $dp->name }}</option>
-                    
-                </select>
+                <input type="text" class="form-control" name="departament" placeholder="Ex.: Medicina Preventiva">
               </div>
 
             <div class="col-md-2">
