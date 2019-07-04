@@ -3,7 +3,6 @@
 @section('title', 'Cadastro de Equipamentos')
 
 @section('content')
-<link rel="stylesheet" href="css/main.css">
 
 <div class="box box-success">
   <div class="box-header with-border">
@@ -62,7 +61,7 @@
               </tr>
             </thead>
         <tbody>
-            @foreach($result as $x)
+            @foreach($resultado as $x)
             <tr>
               <td>{{ $x->cost_center }}</td>
               <td>{{ $x->name }}</td>

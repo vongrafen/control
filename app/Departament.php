@@ -13,4 +13,8 @@ class Departament extends Model
     protected $guarded = [
         'id', 'created_at', 'update_at'
     ];
+
+    public function equipaments(){
+        return $this->belongsToMany(Equipament::class);
+    }
 }

@@ -6,7 +6,7 @@
 
 <div class="box box-success">
             <div class="box-header">
-              <h3 class="box-title">Data Table With Full Features</h3>
+              <h3 class="box-title">Equipamentos Cadastrados</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -21,43 +21,43 @@
                         <th>Setor</th>
                         <th>Nome do PC</th>
                         <th>Usuário</th>
-                        <th>S.O.</th>
-                        <th>Arquitetura</th>
-                        <th>Fabricante</th>
                         <th>Modelo PC</th>
                         <th>Processador</th>
-                        <th>Ghz</th>
                         <th>GB's</th>
                         <th>DDR</th>
                         <th>Mhz</th>
                         <th>Disco</th>
+                        <th>Ações</th>
                         
                       </tr>
                     </thead>
                 <tbody>
-                    @foreach($resultado as $x)
+                    @foreach($equipament as $x)
                     <tr>
                       <td>{{ $x->patrimony }}</td>
-                      <td>{{ $x->departament }}</td>
+                      <td>{{ $x->name_eq }}</td>
                       <td>{{ $x->name }}</td>
                       <td>{{ $x->user }}</td>
-                      <td>{{ $x->so }}</td>
-                      <td>{{ $x->arquiteture }}</td>
-                      <td>{{ $x->pc_brand }}</td>
                       <td>{{ $x->pc_model }}</td>
                       <td>{{ $x->proc }}</td>
-                      <td>{{ $x->proc_hz }}</td>
                       <td>{{ $x->memory }}</td>
                       <td>{{ $x->memory_ddr }}</td>
                       <td>{{ $x->memory_frequency }}</td>
-                      <td>{{ $x->disk }}</td>
-
+                      <td>{{ $x->disk_type }}</td>
+                      <td>
+                          <a href="#" data-skin="skin-blue" class="btn btn-success btn-xs"><i class="fa fa-eye"></i></a>
+                          <a href="#" data-skin="skin-blue" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
+                          <a href="#" data-skin="skin-blue" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
+                      </td>
                     </tr>
                   @endforeach
               </table>
             </div>
           </div>
-            </div>
+            </div>       
             <!-- /.box-body -->
           </div>
 @stop
+
+
+  

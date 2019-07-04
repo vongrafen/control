@@ -15,4 +15,8 @@ class Equipament extends Model
         'id', 'created_at', 'update_at'
     ];
 
+    public function departaments(){
+        return $this->hasOne(Departament::class);
+    }
+
 }

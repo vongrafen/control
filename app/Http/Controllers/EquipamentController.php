@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Departament;
 use App\Equipament;
 use Illuminate\Http\Request;
 
@@ -14,9 +15,14 @@ class EquipamentController extends Controller
      */
     public function index()
     {
-        $equipament = Equipament::all();
-
-        return view('equip.index', ['resultado' => $equipament]);
+        $equipament = Equipament::SELECT('equipaments.*','departaments.name as name_eq')
+            ->LEFTJOIN('departaments', 'equipaments.departament_id', '=', 'departaments.id' )   
+            ->get();
+       
+        return view('equip.index', [
+            'equipament' => $equipament,
+            //'departament' => $departament
+        ]);
     }
 
     /**
@@ -26,15 +32,14 @@ class EquipamentController extends Controller
      */
     public function create(Request $request, Equipament $equipament)
     {
-        try{
-            $equipament->create($request->all());
-            
-            if ($validate) {
-                return back()->with('Sucesso','Equipamento cadastrado com Sucesso');
-            }    
-        } catch(\Illuminate\Database\QueryException $e) {
-            return back()->with('error','ERRO: Ops! Algo deu errado!');
-        }  
+        $equipament-> Equipament::all();
+        $departament = Departament::SELECT('equipaments.*','departaments.name as departaments')
+        ->LEFTJOIN('departaments', 'equipaments.departament_id', '=', 'departaments.id' )   
+        ->first();
+
+        return view('cadastrar')
+            ->with('departament',  $departament);
+        
     }
 
     /**

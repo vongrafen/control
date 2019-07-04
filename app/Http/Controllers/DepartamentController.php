@@ -15,8 +15,7 @@ class DepartamentController extends Controller
     public function index()
     {
         $departament = Departament::all();
-
-        return view('departament.register', ['result' => $departament]);
+        return view('departament.register', ['resultado' => $departament]);
     }
 
     /**
@@ -28,7 +27,7 @@ class DepartamentController extends Controller
     {
 
         $departament->create($request->all()); 
-        return view('showDepartament');
+        return DepartamentController::index();
 
     }
 
