@@ -17,7 +17,7 @@ class CreateDepartamentsTable extends Migration
             $table->increments('id')->unique();
             $table->string('name')->unique();
             $table->string('local');
-            $table->integer('cost_center');
+            $table->integer('cost_center')->unique();
             $table->timestamps();
         });
     }

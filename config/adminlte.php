@@ -120,8 +120,13 @@ return [
             'url'  => '/home',
         ],
         [
+            'text' => 'Manutenções',
+            'icon' => 'wrench',
+            'url'  => '/maintences',
+        ],
+        [
             'text' => 'Equipamentos',
-            'icon' => 'cube',
+            'icon' => 'desktop',
             'url'  => '/index',
         ],
         [
@@ -129,7 +134,7 @@ return [
             'icon'    => 'folder-open',
             'submenu' => [
                 [
-                    'text' => 'Computadores',
+                    'text' => 'Equipamentos',
                     'icon' => 'desktop',
                     'url'  => '/equipamentos',
                 ],
