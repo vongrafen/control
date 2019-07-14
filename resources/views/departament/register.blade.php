@@ -42,7 +42,7 @@
 
 
 <div class="box box-success">
-    <div class="box-header">
+    <div class="box-header with-border">
       <h3 class="box-title">Departamentos Cadastrados</h3>
     </div>
     <!-- /.box-header -->

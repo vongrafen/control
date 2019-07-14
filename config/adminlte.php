@@ -122,7 +122,7 @@ return [
         [
             'text' => 'Manutenções',
             'icon' => 'wrench',
-            'url'  => '/maintences',
+            'url'  => '/manutencao/index',
         ],
         [
             'text' => 'Equipamentos',
