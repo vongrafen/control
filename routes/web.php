@@ -32,7 +32,7 @@ Route::group( [ 'middleware' => 'auth'], function()
         Route::post('/departamentos', 'DepartamentController@create')->name('registerDepartament');
         Route::get('/departamentos', 'DepartamentController@index')->name('showDepartament');
 
-        Route::view('/manutencao/index', 'maintence.add')->name('maintence');
+        Route::view('/manutencao/index', 'maintence.index')->name('maintence');
 
         
 });
