@@ -16,7 +16,6 @@ class CreateMaintencesTable extends Migration
         Schema::create('maintences', function (Blueprint $table) {
             $table->Increments('id');
             $table->date('data');
-            $table->date('end_date');
             $table->string('obs');
 
                 $table->integer('equipament_id')->unsigned();

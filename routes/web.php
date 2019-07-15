@@ -24,15 +24,20 @@ Route::group( [ 'middleware' => 'auth'], function()
 {
         Route::view('/home', 'home')->name('home');   
         Route::view('/equipamentos', 'equip.register')->name('equipament');
+        Route::get('autocomplete', 'EquipamentController@autocomplete')->name('autocomplete');
         Route::post('/equipamentos', 'EquipamentController@create')->name('cadastrar');
         Route::get('/index', 'EquipamentController@index')->name('index');
+        Route::any('/equipamentos/{id}/editar', 'EquipamentController@edit')->name('editEquip');
+        Route::post('/equipamentos/{id}/update', 'EquipamentController@update')->name('updateEquip');
 
         Route::view('/departamentos/index', 'departament.index')->name('departamentIndex');
         Route::view('/departamentos', 'departament.register')->name('departament');
         Route::post('/departamentos', 'DepartamentController@create')->name('registerDepartament');
         Route::get('/departamentos', 'DepartamentController@index')->name('showDepartament');
 
-        Route::view('/manutencao/index', 'maintence.index')->name('maintence');
+        //Route::view('/manutencao/index', 'maintence.index')->name('maintence');
+        Route::get('/manutencao/index', 'MaintenceController@index')->name('maintenceIndex');
+
 
         
 });

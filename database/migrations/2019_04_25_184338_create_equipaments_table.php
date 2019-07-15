@@ -41,6 +41,12 @@ class CreateEquipamentsTable extends Migration
                     ->on('departaments')
                     ->onDelete('cascade');
 
+            $table->integer('maintence_id')->unsigned();
+            $table->foreign('maintence_id')
+                    ->references('id')
+                    ->on('maintences')
+                    ->onDelete('cascade');
+
             $table->boolean('active')->default(true);
             $table->timestamps();
             

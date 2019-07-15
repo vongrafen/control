@@ -3,6 +3,8 @@
 @section('title', 'Cadastro de Equipamentos')
 
 @section('content')
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 <link rel="stylesheet" href="css/main.css">
 
 <div class="box box-success">
@@ -15,100 +17,98 @@
       {!! csrf_field() !!}
     <div class="box-body">
         <div class="form-row">
-            <div class="col-md-1">
-              <label for="patrimony">Patrimônio</label>
-              <input type="text" class="form-control" name="patrimony" placeholder="Ex.: 000000">
+          <div class="col-md-1">
+            <label for="patrimony">Patrimônio</label>
+            <input type="text" class="form-control" name="patrimony" placeholder="Ex.: 000000">
+          </div>
+
+          <div class="col-md-2">
+              <label for="name">Nome do Equipamento</label>
+              <input type="text" class="form-control" name="name" placeholder="Ex.: H-TI-14">
+          </div>
+
+          <div class="col-md-2">
+              <label for="so">Sistema Operacional</label>
+              <select type="text" class="form-control" name="so" >
+                <option>Terminal Service</option>
+                <option>Windows XP</option>
+                <option>Windows 7</option>
+                <option>Windows 8</option>
+                <option>Windows 10</option>
+              </select>
             </div>
 
             <div class="col-md-2">
-                <label for="name">Nome do Equipamento</label>
-                <input type="text" class="form-control" name="name" placeholder="Ex.: H-TI-14">
-            </div>
-
-            <div class="col-md-2">
-                <label for="so">Sistema Operacional</label>
-                <select type="text" class="form-control" name="so" >
-                  <option>Terminal Service</option>
-                  <option>Windows XP</option>
-                  <option>Windows 7</option>
-                  <option>Windows 8</option>
-                  <option>Windows 10</option>
+                <label for="arquiteture">Sistema Operacional</label>
+                <select type="text" class="form-control" name="arquiteture" >
+                  <option>x32</option>
+                  <option>x64</option>
                 </select>
-              </div>
-
-              <div class="col-md-2">
-                  <label for="arquiteture">Sistema Operacional</label>
-                  <select type="text" class="form-control" name="arquiteture" >
-                    <option>x32</option>
-                    <option>x64</option>
-                  </select>
-              </div>
-
-            <div class="col-md-2">
-                <label for="service_tag">ServiceTag</label>
-                <input type="text" class="form-control" name="service_tag" placeholder="Ex.: NCS2280">
             </div>
 
-            <div class="form-group col-md-3">
-                <label for="partnumber">Partnumber</label>
-                <input type="text" class="form-control" name="partnumber" placeholder="Ex.: 4568NZH2233NN">
-            </div>
+          <div class="col-md-2">
+              <label for="service_tag">ServiceTag</label>
+              <input type="text" class="form-control" name="service_tag" placeholder="Ex.: NCS2280">
+          </div>
+
+          <div class="form-group col-md-3">
+              <label for="partnumber">Partnumber</label>
+              <input type="text" class="form-control" name="partnumber" placeholder="Ex.: 4568NZH2233NN">
+          </div>
         </div>
 
         <div class="form-row">
 
-            <div class="col-md-2">
-                <label for="departament">Setor</label>
-                <input type="text" class="form-control" name="departament" placeholder="Ex.: Medicina Preventiva">
-              </div>
-
-            <div class="col-md-2">
-                <label for="user">Usuário</label>
-                <input type="text" class="form-control" name="user" placeholder="Ex.: usuario.sobrenome">
-              </div>
-
-            <div class="col-md-4">
-              <label for="pc_brand">Fabricante</label>
-              <input type="text" class="form-control" name="pc_brand" placeholder="Ex.: Dell, HP...">
+          <div class="col-md-2">
+              <label for="departament">Setor</label>
+              <input type="text" class="input.typeahead form-control" name="departament" placeholder="Ex.: Medicina Preventiva">
             </div>
 
-            <div class="form-group col-md-4">
-              <label for="pc_model">Modelo</label>
-              <input type="text" class="form-control" name="pc_model" placeholder="Ex.: VOSTRO 230S">
+          <div class="col-md-2">
+              <label for="user">Usuário</label>
+              <input type="text" class="form-control" name="user" placeholder="Ex.: usuario.sobrenome">
             </div>
+
+          <div class="col-md-4">
+            <label for="pc_brand">Fabricante</label>
+            <input type="text" class="form-control" name="pc_brand" placeholder="Ex.: Dell, HP...">
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="pc_model">Modelo</label>
+            <input type="text" class="form-control" name="pc_model" placeholder="Ex.: VOSTRO 230S">
+          </div>
 
         </div>           
     </div>
-  
 
-  <div class="box">
+<div class="box">
     
-      <div class="box-header with-border">
-        <h3 class="box-title">Processador</h3>
-      </div>
-      
+  <div class="box-header with-border">
+    <h3 class="box-title">Processador</h3>
+  </div>
+    
+  <div class="box-body">
+    <div class="form-row">
 
-        <div class="box-body">
-          <div class="form-row">
-    
-              <div class="col-md-4">
-                <label for="proc_brand">Fabricante</label>
-                <input type="proc_brand" class="form-control" name="proc_brand" placeholder="Ex.: Intel, AMD...">
-              </div>
-    
-              <div class="col-md-4">
-                  <label for="proc">Modelo</label>
-                  <input type="proc" class="form-control" name="proc" placeholder="Ex.: I5-7500">
-              </div>
-    
-              <div class="form-group col-md-4">
-                <label for="proc_hz">Velocidade</label>
-                <input type="proc_hz" class="form-control" name="proc_hz" placeholder="Ex.: 3.30">
-              </div>
-    
-          </div>
+        <div class="col-md-4">
+          <label for="proc_brand">Fabricante</label>
+          <input type="proc_brand" class="form-control" name="proc_brand" placeholder="Ex.: Intel, AMD...">
+        </div>
+
+        <div class="col-md-4">
+            <label for="proc">Modelo</label>
+            <input type="proc" class="form-control" name="proc" placeholder="Ex.: I5-7500">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="proc_hz">Velocidade</label>
+          <input type="proc_hz" class="form-control" name="proc_hz" placeholder="Ex.: 3.30">
+        </div>
 
     </div>
+    </div>
+  </div>
 
   <div class="box">
         <div class="box-header with-border">
@@ -158,8 +158,8 @@
                 </div>
 
                 <div class="form-group col-md-1">
-                  <label for="memory_slots">Ocupados</label>
-                  <select type="text" class="form-control" name="memory_slots">
+                  <label for="qtd_slots">Ocupados</label>
+                  <select type="text" class="form-control" name="qtd_slots">
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -207,7 +207,18 @@
         <button type="submit" class="btn btn-success mb-2">Salvar</button>    
       </div>
 
-      </form>
+  </form>
 </div>
+
+<script type="text/javascript">
+  var path = "{{ route('autocomplete') }}";
+  $('input.typeahead').typeahead({
+      source:  function (query, process) {
+      return $.get(path, { query: query }, function (data) {
+              return process(data);
+          });
+      }
+  });
+</script>
 
 @stop

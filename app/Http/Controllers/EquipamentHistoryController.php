@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\equipamentHistory;
+use App\EquipamentHistory;
 use Illuminate\Http\Request;
 
 class EquipamentHistoryController extends Controller

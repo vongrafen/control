@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\maintence;
+use App\Equipament;
+use App\Maintence;
 use Illuminate\Http\Request;
 
 class MaintenceController extends Controller
@@ -14,7 +15,15 @@ class MaintenceController extends Controller
      */
     public function index()
     {
-        //
+
+        $equipament = Equipament::SELECT('equipaments.*')
+            ->LEFTJOIN('maintences', 'equipaments.maintence_id', '=', 'maintences.id' )   
+            ->get();
+       
+        return view('maintence.index', [
+            'equipament' => $equipament,
+            //'departament' => $departament
+        ]);
     }
 
     /**

@@ -46,8 +46,9 @@
                       <td>{{ $x->disk_type }}</td>
                       <td>
                           <a href="#" data-skin="skin-blue" class="btn btn-success btn-xs"><i class="fa fa-eye"></i></a>
-                          <a href="#" data-skin="skin-blue" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
+                          <a href="{{ route('editEquip', $x->id) }}" data-skin="skin-blue" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
                           <a href="#" data-skin="skin-blue" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
+                          <a href="#" data-skin="skin-blue" class="btn btn-primary btn-xs"><i class="fa fa-wrench"></i></a>
                       </td>
                     </tr>
                   @endforeach

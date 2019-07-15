@@ -143,6 +143,11 @@ return [
                     'icon' => 'briefcase',
                     'url'  => '/departamentos',
                 ],
+                [
+                    'text' => 'Manutenção',
+                    'icon' => 'wrench',
+                    'url'  => '/manutencao/add',
+                ],
             ],
         ],
     ],

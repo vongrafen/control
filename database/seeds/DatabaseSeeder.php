@@ -73,7 +73,8 @@ class DatabaseSeeder extends Seeder
             'disk' => '240',
             'disk_type' => 'SSD',
             'user' => 'augusto.grafen',
-            'departament_id' => '1'
+            'departament_id' => '1',
+            'maintence_id' => '1'
             ]);
 
 

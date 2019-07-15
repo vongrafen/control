@@ -19,4 +19,8 @@ class Equipament extends Model
         return $this->hasOne(Departament::class);
     }
 
+    public function maintence(){
+        return $this->hasMany(Maintence::class);
+    }
+
 }

@@ -63,9 +63,27 @@ class EquipamentController extends Controller
      * @param  \App\Equipament  $equipament
      * @return \Illuminate\Http\Response
      */
-    public function edit(Equipament $equipament)
+    public function edit($id)
     {
-        //
+        $equipament = Equipament::select('equipaments.*','departaments.name as name_equipament')
+            ->leftjoin('departaments', 'equipaments.departament_id', '=', 'departaments.id' )
+            ->where('equipaments.id', $id)
+            ->first();
+
+        return view('equip.edit', [
+            'equipament' => $equipament,
+    
+        ]);
+        
+    }
+
+    public function autocomplete(Request $request)
+    {
+        $departament = Departament::select("name")
+                ->where("name","LIKE","%{$request->input('query')}%")
+                ->get();
+   
+        return response()->json($departament);
     }
 
     /**
@@ -75,9 +93,10 @@ class EquipamentController extends Controller
      * @param  \App\Equipament  $equipament
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Equipament $equipament)
+    public function update(Request $request, $id)
     {
-        //
+        Equipament::find($id)->update($request->all());
+        return redirect()->route('index');
     }
 
     /**
