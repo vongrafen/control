@@ -33,6 +33,8 @@ class EquipamentController extends Controller
     public function create(Request $request, Equipament $equipament)
     {
         $equipament->create($request->all());
+
+        return redirect()->route('index');
     }
 
     /**
@@ -54,7 +56,12 @@ class EquipamentController extends Controller
      */
     public function show(Equipament $equipament)
     {
-        //
+        $departament = Departament::all();       
+        
+        return view('equip.register', [
+            'departament' => $departament,
+            
+        ]);
     }
 
     /**
@@ -77,15 +84,6 @@ class EquipamentController extends Controller
         
     }
 
-    public function autocomplete(Request $request)
-    {
-        $departament = Departament::select("name")
-                ->where("name","LIKE","%{$request->input('query')}%")
-                ->get();
-   
-        return response()->json($departament);
-    }
-
     /**
      * Update the specified resource in storage.
      *
@@ -105,8 +103,10 @@ class EquipamentController extends Controller
      * @param  \App\Equipament  $equipament
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Equipament $equipament)
+    public function destroy($id)
     {
-        //
+        Equipament::find($id)->delete();
+        return redirect()->route('index');
     }
+
 }

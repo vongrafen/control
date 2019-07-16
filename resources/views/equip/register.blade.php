@@ -60,8 +60,12 @@
         <div class="form-row">
 
           <div class="col-md-2">
-              <label for="departament">Setor</label>
-              <input type="text" class="input.typeahead form-control" name="departament" placeholder="Ex.: Medicina Preventiva">
+              <label for="departament_id">Setor</label>
+              <select type="text" class="form-control" name="departament_id">
+                @foreach ($departament as $x)
+                  <option value='{{$x->id}}'>{{$x->name}}</option>
+                @endforeach
+              </select>
             </div>
 
           <div class="col-md-2">
@@ -209,16 +213,5 @@
 
   </form>
 </div>
-
-<script type="text/javascript">
-  var path = "{{ route('autocomplete') }}";
-  $('input.typeahead').typeahead({
-      source:  function (query, process) {
-      return $.get(path, { query: query }, function (data) {
-              return process(data);
-          });
-      }
-  });
-</script>
 
 @stop

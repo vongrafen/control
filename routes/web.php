@@ -23,12 +23,13 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::group( [ 'middleware' => 'auth'], function()
 {
         Route::view('/home', 'home')->name('home');   
-        Route::view('/equipamentos', 'equip.register')->name('equipament');
+        Route::get('/equipamentos', 'EquipamentController@show')->name('equipament');
         Route::get('autocomplete', 'EquipamentController@autocomplete')->name('autocomplete');
         Route::post('/equipamentos', 'EquipamentController@create')->name('cadastrar');
-        Route::get('/index', 'EquipamentController@index')->name('index');
+        Route::any('/index', 'EquipamentController@index')->name('index');
         Route::any('/equipamentos/{id}/editar', 'EquipamentController@edit')->name('editEquip');
         Route::post('/equipamentos/{id}/update', 'EquipamentController@update')->name('updateEquip');
+        Route::get('/equipamentos/{id}/delete', 'EquipamentController@destroy')->name('deleteEquip');
 
         Route::view('/departamentos/index', 'departament.index')->name('departamentIndex');
         Route::view('/departamentos', 'departament.register')->name('departament');

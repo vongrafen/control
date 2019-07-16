@@ -35,13 +35,19 @@ class CreateEquipamentsTable extends Migration
             $table->string('disk_type')->nullable();
             $table->string('user')->nullable();
             
-            $table->integer('departament_id')->unsigned();
+            $table->integer('departament_id')
+                    ->unsigned()
+                    ->nullable();
+
             $table->foreign('departament_id')
                     ->references('id')
                     ->on('departaments')
                     ->onDelete('cascade');
 
-            $table->integer('maintence_id')->unsigned();
+            $table->integer('maintence_id')
+                    ->unsigned()
+                    ->nullable();
+                    
             $table->foreign('maintence_id')
                     ->references('id')
                     ->on('maintences')
