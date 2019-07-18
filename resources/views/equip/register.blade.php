@@ -61,7 +61,7 @@
 
           <div class="col-md-2">
               <label for="departament_id">Setor</label>
-              <select type="text" class="form-control" name="departament_id">
+              <select type="int" class="form-control" name="departament_id">
                 @foreach ($departament as $x)
                   <option value='{{$x->id}}'>{{$x->name}}</option>
                 @endforeach

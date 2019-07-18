@@ -33,7 +33,6 @@ class EquipamentController extends Controller
     public function create(Request $request, Equipament $equipament)
     {
         $equipament->create($request->all());
-
         return redirect()->route('index');
     }
 

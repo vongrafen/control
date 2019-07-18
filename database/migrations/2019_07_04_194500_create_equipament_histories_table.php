@@ -28,6 +28,10 @@ class CreateEquipamentHistoriesTable extends Migration
                 ->on('departaments')
                 ->onDelete('cascade');
 
+            $table->text('new_name')->nullable();
+
+            $table->text('new_departament')->nullable();
+
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
 

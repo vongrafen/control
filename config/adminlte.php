@@ -148,6 +148,11 @@ return [
                     'icon' => 'wrench',
                     'url'  => '/manutencao/add',
                 ],
+                [
+                    'text' => 'Histórico',
+                    'icon' => 'history',
+                    'url'  => '/manutencao/historico',
+                ],
             ],
         ],
     ],
