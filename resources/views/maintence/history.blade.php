@@ -13,44 +13,32 @@
     </div>
     <!-- /.box-header -->
     <!-- form start -->
-    <form action="{{ route('cadastrar') }}" method="post" role="form">
+    <form action="{{ route('equipamentHistory') }}" method="post" role="form">
         {!! csrf_field() !!}
       <div class="box-body">
 
             <table id="tableDepartament" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                 <thead>
                     <tr>
-                        
-                        <th>Patrimônio </th>
-                        <th>Nome antigo</th>
-                        <th>Novo nome</th>
+                        <th>Patrimônio</th>
                         <th>Setor Antigo</th>
-                        <th>Novo Setor</th>
+                        <th>Nome antigo</th>
                         <th>Data</th>
-
-                        @foreach($equipament as $x)
-                            <tr>
-                                <td>{{ $x->patrimony }}</td>
-                                <td>{{ $x->name_eq }}</td>
-                                <td>{{ $x->name }}</td>
-                                <td>{{ $x->user }}</td>
-                                <td>{{ $x->pc_model }}</td>
-                                <td>{{ $x->proc }}</td>
-                                <td>{{ $x->memory }}</td>
-                                <td>{{ $x->memory_ddr }}</td>
-                                <td>{{ $x->memory_frequency }}</td>
-                                <td>{{ $x->disk_type }}</td>
-                            </tr>
-                        
                     </tr>
                 </thead>
+
+                @foreach($equipamentHistory as $x)
+                    <tr>
+                        <td>{{ $x->patrimony }}</td>
+                        <td>{{ $x->nameDepartament }}</td>
+                        <td>{{ $x->nameEquipament }}</td>
+                        <td>{{ $x->date }}</td>
+                    </tr>
+                @endforeach
+                        
             <tbody>
-
       </div>
-    
     </form>
-
 </div>
-
 
 @stop

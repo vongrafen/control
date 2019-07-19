@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Departament;
 use App\Equipament;
+use App\EquipamentHistory;
 use Illuminate\Http\Request;
 
 class EquipamentController extends Controller
@@ -32,8 +33,42 @@ class EquipamentController extends Controller
      */
     public function create(Request $request, Equipament $equipament)
     {
-        $equipament->create($request->all());
+
+        //$equipament->create($request->all());
+
+        $equipament->patrimony = $request->patrimony;
+        $equipament->name = $request->name;
+        $equipament->so = $request->so;
+        $equipament->arquiteture = $request->arquiteture;
+        $equipament->pc_brand = $request->pc_brand;
+        $equipament->pc_model = $request->pc_model;
+        $equipament->service_tag = $request->service_tag;
+        $equipament->partnumber = $request->partnumber;
+        $equipament->proc_brand = $request->proc_brand;
+        $equipament->proc = $request->proc;
+        $equipament->proc_hz = $request->proc_hz;
+        $equipament->memory = $request->memory;
+        $equipament->memory_ddr = $request->memory_ddr;
+        $equipament->memory_frequency = $request->memory_frequency;
+        $equipament->qtd_slots = $request->qtd_slots;
+        $equipament->memory_slots = $request->memory_slots;
+        $equipament->disk = $request->disk;
+        $equipament->disk_type = $request->disk_type;
+        $equipament->user = $request->user;
+        $equipament->departament_id = $request->departament_id;
+        $equipament->maintence_id = $request->maintence_id;
+        $equipament->save();
+
+        $history = new EquipamentHistory;
+        $history->old_name = $equipament->name;
+        $history->old_departament = $equipament->departament_id;
+        $history->equipament_id = $equipament->id;
+        $history->date = date('Y-m-d');
+        $history->save();
+
         return redirect()->route('index');
+
+        
     }
 
     /**

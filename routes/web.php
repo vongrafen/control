@@ -38,7 +38,8 @@ Route::group( [ 'middleware' => 'auth'], function()
 
         //Route::view('/manutencao/index', 'maintence.index')->name('maintence');
         Route::get('/manutencao/index', 'MaintenceController@index')->name('maintenceIndex');
-        Route::view('/manutencao/historico', 'maintence.history')->name('maintenceHistory');
+        Route::get('/manutencao/historico', 'EquipamentHistoryController@show')->name('equipamentHistory');
+
 
 
         

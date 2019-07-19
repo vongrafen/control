@@ -44,9 +44,21 @@ class EquipamentHistoryController extends Controller
      * @param  \App\equipamentHistory  $equipamentHistory
      * @return \Illuminate\Http\Response
      */
-    public function show(equipamentHistory $equipamentHistory)
+    public function show(EquipamentHistory $equipamentHistory)
     {
-        //
+        //$equipamentHistory = EquipamentHistory::all();   
+        
+        $equipamentHistory = EquipamentHistory::select('equipament_histories.*','departaments.name as nameDepartament', 'equipaments.name as nameEquipament')
+            ->leftjoin('equipaments', 'equipament_histories.equipament_id', '=', 'equipaments.id' )
+            ->leftjoin('departaments', 'equipament_histories.departament_id', '=', 'departaments.id' )
+            ->get();
+
+        //dd($equipamentHistory);
+        
+        return view('maintence.history', [
+            'equipamentHistory' => $equipamentHistory,
+            
+        ]);
     }
 
     /**

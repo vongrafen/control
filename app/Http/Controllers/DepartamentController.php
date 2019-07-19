@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Departament;
 use Illuminate\Http\Request;
+use App\EquipamentHistory;
 
 class DepartamentController extends Controller
 {
