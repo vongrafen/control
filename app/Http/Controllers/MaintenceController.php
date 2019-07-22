@@ -16,8 +16,8 @@ class MaintenceController extends Controller
     public function index()
     {
 
-        $equipament = Equipament::SELECT('equipaments.*')
-            ->LEFTJOIN('maintences', 'equipaments.maintence_id', '=', 'maintences.id' )   
+        $equipament = Maintence::SELECT('maintences.*', 'equipaments.patrimony as patrimony')
+            ->LEFTJOIN('equipaments', 'maintences.equipament_id', '=', 'equipaments.id' )   
             ->get();
        
         return view('maintence.index', [

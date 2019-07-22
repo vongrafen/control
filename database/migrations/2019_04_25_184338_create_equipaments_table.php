@@ -14,7 +14,7 @@ class CreateEquipamentsTable extends Migration
     public function up()
     {
         Schema::create('equipaments', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('patrimony')->unique();
             $table->string('name')->unique();
             $table->string('so')->nullable();
@@ -33,31 +33,20 @@ class CreateEquipamentsTable extends Migration
             $table->integer('memory_slots')->nullable();
             $table->integer('disk')->nullable();
             $table->string('disk_type')->nullable();
-            $table->string('user')->nullable();
-            
-            $table->integer('departament_id')
-                    ->unsigned()
-                    ->nullable();
-
-            $table->foreign('departament_id')
-                    ->references('id')
-                    ->on('departaments')
-                    ->onDelete('cascade');
-
-            $table->integer('maintence_id')
-                    ->unsigned()
-                    ->nullable();
-                    
-            $table->foreign('maintence_id')
-                    ->references('id')
-                    ->on('maintences')
-                    ->onDelete('cascade');
-
+            $table->string('user')->nullable();         
+            $table->unsignedBigInteger('departament_id')->nullable();
             $table->boolean('active')->default(true);
             $table->timestamps();
-            
 
         });
+
+        Schema::table('equipaments', function (Blueprint $table) {
+            $table->foreign('departament_id')
+                        ->references('id')
+                        ->on('departaments')
+                        ->onDelete('cascade');
+        });
+
     }
 
     /**

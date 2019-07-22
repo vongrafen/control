@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEquipamentMaintence extends Migration
+class CreateDepartamentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreateEquipamentMaintence extends Migration
      */
     public function up()
     {
-        Schema::create('equipament_maintence', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        
+        Schema::create('departaments', function (Blueprint $table) {
+            $table->bigIncrements('id')->unique();
+            $table->string('name')->unique();
+            $table->string('local');
+            $table->integer('cost_center')->unique();
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateEquipamentMaintence extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('equipament_maintence');
+        Schema::dropIfExists('departaments');
     }
 }

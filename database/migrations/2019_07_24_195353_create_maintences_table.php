@@ -14,15 +14,20 @@ class CreateMaintencesTable extends Migration
     public function up()
     {
         Schema::create('maintences', function (Blueprint $table) {
-            $table->Increments('id');
+            $table->bigIncrements('id');
             $table->date('data');
             $table->string('obs');
-
-                $table->integer('equipament_id')->unsigned();
-                $table->foreign('equipament_id')->references('id')->on('equipaments');
-
+            $table->unsignedBigInteger('equipament_id')->nullable();
             $table->timestamps();
         });
+
+        Schema::table('maintences', function (Blueprint $table) {
+            $table->foreign('equipament_id')
+                        ->references('id')
+                        ->on('equipaments')
+                        ->onDelete('cascade');
+        });
+        
     }
 
     /**

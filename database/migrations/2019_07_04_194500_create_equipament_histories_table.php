@@ -14,26 +14,27 @@ class CreateEquipamentHistoriesTable extends Migration
     public function up()
     {
         Schema::create('equipament_histories', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('equipament_id')->nullable();
+            $table->unsignedBigInteger('departament_id')->nullable();
+            $table->text('old_name')->nullable();
+            $table->text('old_departament')->nullable();
+            $table->date('date')->nullable();
+            $table->timestamps();
+        });
 
-            $table->integer('equipament_id')->unsigned()->nullable();
+        Schema::table('equipament_histories', function (Blueprint $table) {
+
             $table->foreign('equipament_id')
                 ->references('id')
                 ->on('equipaments')
                 ->onDelete('cascade');
 
-            $table->integer('departament_id')->unsigned()->nullable();
             $table->foreign('departament_id')
                 ->references('id')
                 ->on('departaments')
                 ->onDelete('cascade');
 
-            $table->text('old_name')->nullable();
-            $table->text('old_departament')->nullable();
-            $table->date('date')->nullable();
-
-
-            $table->timestamps();
         });
     }
 
