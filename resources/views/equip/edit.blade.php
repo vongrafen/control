@@ -217,8 +217,8 @@
   </div>
 
       <div class="box-body">            
-        <button type="submit" class="btn btn-success mb-2 fa fa-save" >  Salvar Alterações</button>
-      <button href="{{route('index')}}" class="btn btn-danger mb-2 fa fa-remove" >  Cancelar</button>    
+        <button type="submit" class="btn btn-success mb-2" >  Salvar Alterações</button>
+      <button href="{{route('index')}}" class="btn btn-danger mb-2 " >  Cancelar</button>    
       </div>
 
       </form>

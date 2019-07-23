@@ -148,11 +148,17 @@ return [
                     'icon' => 'wrench',
                     'url'  => '/manutencao/add',
                 ],
+            ],
+        ],
+        [
+            'text' => 'Histórico',
+            'icon' => 'history',
+            'submenu'  => [
                 [
-                    'text' => 'Histórico',
-                    'icon' => 'history',
+                    'text' => 'Patrimônio',
+                    'icon' => 'desktop',
                     'url'  => '/manutencao/historico',
-                ],
+                ], 
             ],
         ],
     ],

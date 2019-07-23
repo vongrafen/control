@@ -18,6 +18,7 @@ class CreateMaintencesTable extends Migration
             $table->date('data');
             $table->string('obs');
             $table->unsignedBigInteger('equipament_id')->nullable();
+            $table->unsignedBigInteger('departament_id')->nullable();
             $table->timestamps();
         });
 
@@ -25,6 +26,11 @@ class CreateMaintencesTable extends Migration
             $table->foreign('equipament_id')
                         ->references('id')
                         ->on('equipaments')
+                        ->onDelete('cascade');
+
+            $table->foreign('departament_id')
+                        ->references('id')
+                        ->on('departaments')
                         ->onDelete('cascade');
         });
         

@@ -56,7 +56,6 @@ class EquipamentController extends Controller
         $equipament->disk_type = $request->disk_type;
         $equipament->user = $request->user;
         $equipament->departament_id = $request->departament_id;
-        $equipament->maintence_id = $request->maintence_id;
         $equipament->save();
 
         $history = new EquipamentHistory;

@@ -10,6 +10,39 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+
+                <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                <script>
+                     $("#btn-mensagem").click(function(){
+                      $("#modal-mensagem").modal();
+                      });
+                </script> 
+
+
+                <div class="modal fade" id="modal-mensagem">
+                    <div class="modal-dialog">
+                         <div class="modal-content">
+                             <div class="modal-header">
+                                 <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+                                 <h4 class="modal-title">Detalhes do equipamento</h4>
+                             </div>
+                             <div class="modal-body">
+
+
+                                 <p>Conteúdo da mensagem</p>
+
+
+                             </div>
+                             <div class="modal-footer">
+                                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                             </div>
+                          </div>
+                    </div>
+                </div>
+
+
+
               <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
                 <div class="row">
                   <div class="col-sm-12">
@@ -45,10 +78,10 @@
                       <td>{{ $x->memory_frequency }}</td>
                       <td>{{ $x->disk_type }}</td>
                       <td>
-                          <a href="#" data-skin="skin-blue" class="btn btn-success btn-xs"><i class="fa fa-eye"></i></a>
+                          <a href="#" data-toggle="modal" data-target="#modal-mensagem" data-skin="skin-blue" class="btn btn-success btn-xs"><i class="fa fa-eye"></i></a>
                           <a href="{{ route('editEquip', $x->id) }}" data-skin="skin-blue" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
                           <a href="{{ route('deleteEquip', $x->id)}}" data-skin="skin-blue" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
-                          <a href="#" data-skin="skin-blue" class="btn btn-primary btn-xs"><i class="fa fa-wrench"></i></a>
+                          <a href="{{ route('maintenceAdd', $x->id)}}" class="btn btn-primary btn-xs"><i class="fa fa-wrench"></i></a>
                       </td>
                     </tr>
                   @endforeach
@@ -58,6 +91,12 @@
             </div>       
             <!-- /.box-body -->
           </div>
+
+
+
+
+
+
 @stop
 
 
