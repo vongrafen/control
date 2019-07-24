@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Equipament;
 use App\Maintence;
 use App\Departament;
@@ -17,7 +18,7 @@ class MaintenceController extends Controller
     public function index()
     {
 
-        $equipament = Maintence::SELECT('maintences.*', 'equipaments.patrimony as patrimony')
+        /*$equipament = Maintence::SELECT('maintences.*', 'equipaments.patrimony as patrimony')
             ->LEFTJOIN('equipaments', 'maintences.equipament_id', '=', 'equipaments.id' )   
             ->get();
 
@@ -28,10 +29,17 @@ class MaintenceController extends Controller
          and maintences.id = (select max(id) 
          from maintences as main where main.equipament_id = equipaments.id ) 
          */
-       
+
+        //dd($equipament);
+
+        $equipament = DB::select('select * from  equipaments
+        left join maintences on 
+        maintences.equipament_id = equipaments.id 
+        and maintences.id = (select max(id) 
+        from maintences as main where main.equipament_id = equipaments.id )');
+
         return view('maintence.index', [
             'equipament' => $equipament,
-            //'departament' => $departament
         ]);
     }
 
