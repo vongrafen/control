@@ -48,7 +48,10 @@ class EquipamentHistoryController extends Controller
     {
         //$equipamentHistory = EquipamentHistory::all();   
 
-        $equipamentHistory = EquipamentHistory::select('equipament_histories.*','departaments.name as nameDepartament', 'equipaments.name as nameEquipament')
+        $equipamentHistory = EquipamentHistory::select('equipament_histories.*',
+                                                        'departaments.name as nameDepartament', 
+                                                        'equipaments.name as nameEquipament', 
+                                                        'equipaments.patrimony as patrimony')
             ->leftjoin('equipaments', 'equipament_histories.equipament_id', '=', 'equipaments.id' )
             ->leftjoin('departaments', 'equipament_histories.departament_id', '=', 'departaments.id' )
             ->get();

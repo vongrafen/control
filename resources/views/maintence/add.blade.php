@@ -18,7 +18,7 @@
 
             <div class='row'>
 
-                <input type="hidden" value="{{$maintence->equipamentID}}" class="form-control" name="equipament_id">    
+                <input type="hidden" value="{{$maintence->equipament_id}}" class="form-control" name="equipament_id">    
 
                 <div class="form-group col-md-1">
                     <label for="patrimony">Patrimônio</label>

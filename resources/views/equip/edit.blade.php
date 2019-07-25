@@ -17,7 +17,7 @@
       <div class="form-row">
             <div class="col-md-1">
               <label for="patrimony">Patrimônio</label>
-            <input disabled type="text" class="form-control" value="{{$equipament->patrimony}}" name="patrimony" placeholder="Ex.: 000000">
+            <input type="text" class="form-control" value="{{$equipament->patrimony}}" name="patrimony" placeholder="Ex.: 000000" readonly>
             </div>
 
             <div class="col-md-2">
@@ -67,7 +67,12 @@
 
             <div class="col-md-2">
                 <label for="departament">Setor</label>
-                <input disabled type="text" class="form-control" name="departament" value="{{$equipament->name_equipament}}" placeholder="Ex.: Medicina Preventiva">
+                <select type="text" class="form-control" name="departament" >
+                  @foreach ($departament as $dep)
+                    <option @if ($equipament->name_equipament == $dep->name) selected @endif value="{{$dep->id}}">{{$dep->name}}</option>
+                  @endforeach
+                </select>
+
               </div>
 
             <div class="col-md-2">

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class equipamentHistory extends Model
 {
     protected $fillable = [
-        'equipament_id', 'departament_id', 'old_name', 'old_departament', 'date'
+        'equipament_id', 'departament_id', 'old_name', 'old_departament', 'date', 'new_name', 'new_departament'
     ];
 
     protected $guarded = [

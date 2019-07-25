@@ -23,7 +23,7 @@ class CreateEquipamentsTable extends Migration
             $table->string('pc_model')->nullable();
             $table->string('service_tag')->nullable();
             $table->string('partnumber')->nullable()->unique();
-            $table->string('proc_brand')->nullable()->unique();
+            $table->string('proc_brand')->nullable();
             $table->string('proc')->nullable();
             $table->string('proc_hz')->nullable();
             $table->string('memory')->nullable();

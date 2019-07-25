@@ -21,8 +21,11 @@
                 <thead>
                     <tr>
                         <th>Patrimônio</th>
-                        <th>Setor Antigo</th>
+                        
                         <th>Nome antigo</th>
+                        <th>Nome novo</th>
+                        <th>Setor Antigo</th>
+                        <th>Setor Novo</th>
                         <th>Data</th>
                     </tr>
                 </thead>
@@ -30,8 +33,10 @@
                 @foreach($equipamentHistory as $x)
                     <tr>
                         <td>{{ $x->patrimony }}</td>
-                        <td>{{ $x->nameDepartament }}</td>
                         <td>{{ $x->nameEquipament }}</td>
+                        <td>{{ $x->nameEquipament }}</td>
+                        <td>{{ $x->nameDepartament }}</td>
+                        <td>{{ $x->nameDepartament }}</td>
                         <td>{{ $x->date }}</td>
                     </tr>
                 @endforeach

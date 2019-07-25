@@ -58,13 +58,6 @@ class EquipamentController extends Controller
         $equipament->departament_id = $request->departament_id;
         $equipament->save();
 
-        $history = new EquipamentHistory;
-        $history->old_name = $equipament->name;
-        $history->old_departament = $equipament->departament_id;
-        $history->equipament_id = $equipament->id;
-        $history->date = date('Y-m-d');
-        $history->save();
-
         return redirect()->route('index');
 
         
@@ -105,6 +98,7 @@ class EquipamentController extends Controller
      */
     public function edit($id)
     {
+        $departament = Departament::all();
         $equipament = Equipament::select('equipaments.*','departaments.name as name_equipament')
             ->leftjoin('departaments', 'equipaments.departament_id', '=', 'departaments.id' )
             ->where('equipaments.id', $id)
@@ -112,6 +106,7 @@ class EquipamentController extends Controller
 
         return view('equip.edit', [
             'equipament' => $equipament,
+            'departament' => $departament,
     
         ]);
         
@@ -124,9 +119,21 @@ class EquipamentController extends Controller
      * @param  \App\Equipament  $equipament
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Equipament $equipament, Request $request, $id)
     {
+        
         Equipament::find($id)->update($request->all());
+
+        historics()->create([
+            'equipament_id'     => $request->equipament_id,
+            'departament_id'    => $request->departament_id,
+            'old_name'          => $equipament->name,
+            'old_departament'   => $equipament->departament_id,
+            'date'              => date('Ymd'),
+            'new_name'          => $request->name,
+            'new_departament'   => $request->departament_id,
+        ]);
+
         return redirect()->route('index');
     }
 

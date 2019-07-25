@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use App\Equipament;
+use App\EquipamentHistory;
 use App\Maintence;
 use App\Departament;
 use Illuminate\Http\Request;
@@ -48,18 +49,20 @@ class MaintenceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create( Maintence $maintence, Request $request)
+    public function create(Maintence $maintence, Request $request)
     {
         $equipament = Equipament::find($request->equipament_id);
+        $history = new EquipamentHistory;
+        
+        $history->old_name = Equipament::find($request->equipament_id)->name;          
         $equipament->name = $request->name;
+        $history->new_name = $request->name;
+        $history->old_departament = Equipament::find($request->equipament_id)->departament_id;
         $equipament->departament_id = $request->departament_id;
+        $history->new_departament = $request->departament_id;
+        $history->equipament_id = Equipament::find($request->equipament_id)->id;
+        $history->date = date('Y-m-d');
         $equipament->save();
-
-        $maintence->equipament_id = $request->equipament_id;
-        $maintence->departament_id = $request->departament_id;
-        $maintence->obs = $request->obs;
-        $maintence->data = $request->data;
-        $maintence->save();
 
         //$maintence = Maintence::create($request->all());
         return redirect()->route('maintenceIndex');

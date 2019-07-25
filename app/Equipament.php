@@ -23,4 +23,8 @@ class Equipament extends Model
         return $this->hasMany(Maintence::class);
     }
 
+    public function historic(){
+        return $this->hasMany(EquipamentHistory::class);
+    }
+
 }
