@@ -19,8 +19,8 @@ class CreateEquipamentHistoriesTable extends Migration
             $table->unsignedBigInteger('departament_id')->nullable();
             $table->string('old_name')->nullable();
             $table->string('new_name')->nullable();
-            $table->integer('old_departament')->nullable();
-            $table->integer('new_departament')->nullable();
+            $table->string('old_departament')->nullable();
+            $table->string('new_departament')->nullable();
             $table->date('date')->nullable();
             $table->timestamps();
         });

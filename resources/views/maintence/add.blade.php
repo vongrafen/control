@@ -18,7 +18,7 @@
 
             <div class='row'>
 
-                <input type="hidden" value="{{$maintence->equipament_id}}" class="form-control" name="equipament_id">    
+                <input type="hidden" value="{{$maintence->equipamentID}}" class="form-control" name="equipament_id">    
 
                 <div class="form-group col-md-1">
                     <label for="patrimony">Patrimônio</label>
@@ -41,7 +41,7 @@
                 
                 <div class="form-group col-md-3">
                         <label for="data">Data</label>
-                        <input type="departament" value="<?php echo date('Y/m/d');?>" class="form-control" name="data" readonly>
+                        <input type="text" value="<?php echo date('Y/m/d');?>" class="form-control" name="data" readonly>
                 </div>   
 
                 <div class="form-group col-md-12">

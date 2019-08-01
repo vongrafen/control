@@ -4,21 +4,15 @@
 
 @section('content')
 
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title">Equipamentos Cadastrados</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-
-                <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-                <script>
-                     $("#btn-mensagem").click(function(){
-                      $("#modal-mensagem").modal();
-                      });
-                </script> 
-
 
                 <div class="modal fade" id="modal-mensagem">
                     <div class="modal-dialog">
@@ -35,7 +29,7 @@
 
                              </div>
                              <div class="modal-footer">
-                                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                 <button type="button" class="btn btn-default date" data-dismiss="modal">Fechar</button>
                              </div>
                           </div>
                     </div>
@@ -78,11 +72,12 @@
                       <td>{{ $x->memory_frequency }}</td>
                       <td>{{ $x->disk_type }}</td>
                       <td>
-                          <a href="#" data-toggle="modal" data-target="#modal-mensagem" data-skin="skin-blue" class="btn btn-success btn-xs"><i class="fa fa-eye"></i></a>
-                          <a href="{{ route('editEquip', $x->id) }}" data-skin="skin-blue" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
-                          <a href="{{ route('deleteEquip', $x->id)}}" data-skin="skin-blue" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
-                          <a href="{{ route('maintenceAdd', $x->id)}}" class="btn btn-primary btn-xs"><i class="fa fa-wrench"></i></a>
+                          <a href="#" data-toggle="modal" data-target="#modal-mensagem" data-tt="tooltip" data-skin="skin-blue" class="btn btn-success btn-xs" data-placement="top" title="Detalhes do Equipamento"><i class="fa fa-eye"></i></a>
+                          <a href="{{ route('editEquip', $x->id) }}" data-skin="skin-blue" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-edit"></i></a>
+                          <a href="{{ route('deleteEquip', $x->id)}}" data-skin="skin-blue" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Deletar"><i class="fa fa-trash-o"></i></a>
+                          <a href="{{ route('maintenceAdd', $x->id)}}" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Efetuar Manutenção"><i class="fa fa-wrench"></i></a>
                       </td>
+
                     </tr>
                   @endforeach
               </table>
@@ -91,11 +86,12 @@
             </div>       
             <!-- /.box-body -->
           </div>
-
-
-
-
-
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-tt="tooltip"]').tooltip()
+  });
+</script>
 
 @stop
 

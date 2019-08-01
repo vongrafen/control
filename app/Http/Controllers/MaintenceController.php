@@ -18,21 +18,6 @@ class MaintenceController extends Controller
      */
     public function index()
     {
-
-        /*$equipament = Maintence::SELECT('maintences.*', 'equipaments.patrimony as patrimony')
-            ->LEFTJOIN('equipaments', 'maintences.equipament_id', '=', 'equipaments.id' )   
-            ->get();
-
-        /*
-         select * from  equipaments
-         left join maintences on 
-         maintences.equipament_id = equipaments.id 
-         and maintences.id = (select max(id) 
-         from maintences as main where main.equipament_id = equipaments.id ) 
-         */
-
-        //dd($equipament);
-
         $equipament = DB::select('select * from  equipaments
         left join maintences on 
         maintences.equipament_id = equipaments.id 
@@ -49,22 +34,24 @@ class MaintenceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Maintence $maintence, Request $request)
+    public function create(EquipamentHistory $historic, Maintence $maintence, Request $request)
     {
         $equipament = Equipament::find($request->equipament_id);
-        $history = new EquipamentHistory;
         
-        $history->old_name = Equipament::find($request->equipament_id)->name;          
+        if ($equipament->name != $request->name || $equipament->departament_id != $request->departament_id) {
+            EquipamentHistory::historic($equipament, $request);
+        }
+              
         $equipament->name = $request->name;
-        $history->new_name = $request->name;
-        $history->old_departament = Equipament::find($request->equipament_id)->departament_id;
         $equipament->departament_id = $request->departament_id;
-        $history->new_departament = $request->departament_id;
-        $history->equipament_id = Equipament::find($request->equipament_id)->id;
-        $history->date = date('Y-m-d');
         $equipament->save();
 
-        //$maintence = Maintence::create($request->all());
+        $maintence->equipament_id = $request->equipament_id;
+        $maintence->departament_id = $request->departament_id;
+        $maintence->data = $request->data;
+        $maintence->obs = $request->obs;
+        $maintence->save();
+
         return redirect()->route('maintenceIndex');
     }
 

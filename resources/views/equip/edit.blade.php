@@ -15,9 +15,10 @@
     {!! csrf_field() !!}
     <div class="box-body">
       <div class="form-row">
+            <input type="hidden" value="{{$equipament->id}}" class="form-control" name="equipament_id">
             <div class="col-md-1">
               <label for="patrimony">Patrimônio</label>
-            <input type="text" class="form-control" value="{{$equipament->patrimony}}" name="patrimony" placeholder="Ex.: 000000" readonly>
+              <input type="text" class="form-control" value="{{$equipament->patrimony}}" name="patrimony" readonly>
             </div>
 
             <div class="col-md-2">
@@ -66,8 +67,8 @@
         <div class="form-row">
 
             <div class="col-md-2">
-                <label for="departament">Setor</label>
-                <select type="text" class="form-control" name="departament" >
+                <label for="departament_id">Setor</label>
+                <select type="text" class="form-control" name="departament_id" >
                   @foreach ($departament as $dep)
                     <option @if ($equipament->name_equipament == $dep->name) selected @endif value="{{$dep->id}}">{{$dep->name}}</option>
                   @endforeach

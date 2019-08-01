@@ -121,19 +121,13 @@ class EquipamentController extends Controller
      */
     public function update(Equipament $equipament, Request $request, $id)
     {
-        
-        Equipament::find($id)->update($request->all());
+        $equipament = Equipament::find($id);
 
-        historics()->create([
-            'equipament_id'     => $request->equipament_id,
-            'departament_id'    => $request->departament_id,
-            'old_name'          => $equipament->name,
-            'old_departament'   => $equipament->departament_id,
-            'date'              => date('Ymd'),
-            'new_name'          => $request->name,
-            'new_departament'   => $request->departament_id,
-        ]);
+        if ($equipament->name != $request->name || $equipament->departament_id != $request->departament_id) {
+           EquipamentHistory::historic($equipament, $request);
+        }
 
+        $equipament->update($request->all());
         return redirect()->route('index');
     }
 

@@ -20,8 +20,7 @@
             <table id="tableDepartament" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                 <thead>
                     <tr>
-                        <th>Patrimônio</th>
-                        
+                        <th>Patrimônio</th>                        
                         <th>Nome antigo</th>
                         <th>Nome novo</th>
                         <th>Setor Antigo</th>
@@ -33,10 +32,10 @@
                 @foreach($equipamentHistory as $x)
                     <tr>
                         <td>{{ $x->patrimony }}</td>
-                        <td>{{ $x->nameEquipament }}</td>
-                        <td>{{ $x->nameEquipament }}</td>
-                        <td>{{ $x->nameDepartament }}</td>
-                        <td>{{ $x->nameDepartament }}</td>
+                        <td>{{ $x->old_name }}</td>
+                        <td>{{ $x->new_name }}</td>
+                        <td>{{ $x->old_departament }}</td>
+                        <td>{{ $x->new_departament }}</td>
                         <td>{{ $x->date }}</td>
                     </tr>
                 @endforeach

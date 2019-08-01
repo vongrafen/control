@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\EquipamentHistory;
+use App\Equipament;
+use App\Departament;
 use Illuminate\Http\Request;
 
 class EquipamentHistoryController extends Controller
@@ -97,4 +99,5 @@ class EquipamentHistoryController extends Controller
     {
         //
     }
+
 }

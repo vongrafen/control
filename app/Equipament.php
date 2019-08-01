@@ -1,6 +1,8 @@
 <?php
 
 namespace App;
+use App\Departament;
+use App\Maintence;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,12 +21,8 @@ class Equipament extends Model
         return $this->hasOne(Departament::class);
     }
 
-    public function maintence(){
+    public function maintences(){
         return $this->hasMany(Maintence::class);
-    }
-
-    public function historic(){
-        return $this->hasMany(EquipamentHistory::class);
     }
 
 }

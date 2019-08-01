@@ -69,6 +69,16 @@
 $(document).ready( function () {
     $('#tableDepartament').DataTable();
 } );
+
+$(function() {
+    $.mask.definitions['~'] = "[+-]";
+    $("#telephone").mask("(99)9.9999-9999");
+    $("#cpf").mask("999.999.999-99"); //.mask("99999999999");
+    $("#rg").mask("9999999999");
+    $("#cep").mask("99.999-999");
+    $("#date").mask("d-m-y");
+});
+
 </script>
 
 </body>

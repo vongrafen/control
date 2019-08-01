@@ -15,7 +15,7 @@ class CreateMaintencesTable extends Migration
     {
         Schema::create('maintences', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('data');
+            $table->date('data')->nullable();
             $table->string('obs');
             $table->unsignedBigInteger('equipament_id')->nullable();
             $table->unsignedBigInteger('departament_id')->nullable();
