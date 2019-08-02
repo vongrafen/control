@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Departament;
 use App\Unity;
 use Illuminate\Http\Request;
-use App\EquipamentHistory;
 
-class DepartamentController extends Controller
+class UnityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,15 +14,7 @@ class DepartamentController extends Controller
      */
     public function index()
     {
-        $unities = Unity::all();
-        $departament = Departament::select('departaments.*', 'unities.name as nameUnity')
-            ->leftjoin('unities', 'departaments.unity_id', '=', 'unities.id')
-            ->get();
-            
-        return view('departament.register', [
-            'resultado' => $departament,
-            'unities' => $unities
-            ]);
+        //
     }
 
     /**
@@ -32,12 +22,9 @@ class DepartamentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request, Departament $departament)
+    public function create()
     {
-
-        $departament->create($request->all()); 
-        return DepartamentController::index();
-
+        //
     }
 
     /**
@@ -54,10 +41,10 @@ class DepartamentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Unity  $unity
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Unity $unity)
     {
         //
     }
@@ -65,10 +52,10 @@ class DepartamentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Unity  $unity
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Unity $unity)
     {
         //
     }
@@ -77,10 +64,10 @@ class DepartamentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Unity  $unity
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Unity $unity)
     {
         //
     }
@@ -88,10 +75,10 @@ class DepartamentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Unity  $unity
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Unity $unity)
     {
         //
     }

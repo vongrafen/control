@@ -35,6 +35,7 @@ class CreateEquipamentsTable extends Migration
             $table->string('disk_type')->nullable();
             $table->string('user')->nullable();         
             $table->unsignedBigInteger('departament_id')->nullable();
+            $table->unsignedInteger('unity_id')->nullable();
             $table->boolean('active')->default(true);
             $table->timestamps();
 
@@ -44,6 +45,10 @@ class CreateEquipamentsTable extends Migration
             $table->foreign('departament_id')
                         ->references('id')
                         ->on('departaments')
+                        ->onDelete('cascade');
+            $table->foreign('unity_id')
+                        ->references('id')
+                        ->on('unities')
                         ->onDelete('cascade');
         });
 

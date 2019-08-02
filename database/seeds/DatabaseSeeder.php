@@ -18,39 +18,46 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('admin'),
         ]);
 
+        DB::table('unities')->insert([
+            ['sigla' => 'HU', 'name' => 'Hospital Unimed', 'cnpj' => ''], 
+            ['sigla' => 'SEDE', 'name' => 'Sede Administrativa', 'cnpj' =>''],
+            ['sigla' => 'CA', 'name' => 'Central de Autorizações', 'cnpj' => ''],
+            ['sigla' => 'PC', 'name' => 'Posto de Coleta', 'cnpj' => ''],
+        ]);
+
         DB::table('departaments')->insert([
-            ['name' => 'Atenção Integral a Saúde','local'=> 'Hospital Unimed','cost_center' => '730'],
-            ['name' => 'Agência Transfusional','local'=> 'Hospital Unimed','cost_center' => '1025'],
-            ['name' => 'Auditoria de Enfermagen','local'=> 'Hospital Unimed','cost_center' => '461'],
-            ['name' => 'Auditorio HU','local'=> 'Hospital Unimed', 'cost_center' => '1275'],	
-            ['name' => 'Berçario','local'=> 'Hospital Unimed', 'cost_center' => '840'],	
-            ['name' => 'Caldeira','local'=> 'Hospital Unimed', 'cost_center' => '1305'],	 
-            ['name' => 'CCIH','local'=> 'Hospital Unimed', 'cost_center' => '804'],	
-            ['name' => 'CDI - Coordenação','local'=> 'Hospital Unimed', 'cost_center' => '960'],	
-            ['name' => 'CDI - Densitometria Ossea','local'=> 'Hospital Unimed', 'cost_center' => '985'],	
-            ['name' => 'CDI - Estar (Técnicos/Médicos)','local'=> 'Hospital Unimed', 'cost_center' => '1000'],	
-            ['name' => 'CDI - Exames Endoscópicos','local'=> 'Hospital Unimed', 'cost_center' => '915'],	
-            ['name' => 'CDI - Laudos','local'=> 'Hospital Unimed', 'cost_center' => '995'],	
-            ['name' => 'CDI - Mamografia','local'=> 'Hospital Unimed', 'cost_center' => '975'],	
-            ['name' => 'CDI - Raio X','local'=> 'Hospital Unimed', 'cost_center' => '970'],	
-            ['name' => 'CDI - Recepção','local'=> 'Hospital Unimed', 'cost_center' => '990'],	
-            ['name' => 'CDI - Ressonância','local'=> 'Hospital Unimed', 'cost_center' => '1005'],	
-            ['name' => 'CDI - Tomografia','local'=> 'Hospital Unimed', 'cost_center' => '965'],	
-            ['name' => 'CDI - Ultrassonografia','local'=> 'Hospital Unimed', 'cost_center' => '980'],	
-            ['name' => 'Central de Agendamentos','local'=> 'Hospital Unimed', 'cost_center' => '1196'],	
-            ['name' => 'Centro Cirurgico','local'=> 'Hospital Unimed', 'cost_center' => '855'],	 
-            ['name' => 'Centro Obstetrico','local'=> 'Hospital Unimed', 'cost_center' => '865'],	 
-            ['name' => 'CME','local'=> 'Hospital Unimed', 'cost_center' => '950'],	 
-            ['name' => 'Compras','local'=> 'Hospital Unimed', 'cost_center' => '1230'],	 
-            ['name' => 'Coordenacao Enfermagem','local'=> 'Hospital Unimed', 'cost_center' => '820'],	
-            ['name' => 'Corpo Clinico','local'=> 'Hospital Unimed', 'cost_center' => '41'],	    
-            ['name' => 'CPAE','local'=> 'Hospital Unimed', 'cost_center' => '1070'],	 
-            ['name' => 'Desenvolvimento Humano','local'=> 'Hospital Unimed', 'cost_center' => '290'],	
-            ['name' => 'Farmácia Central','local'=> 'Hospital Unimed', 'cost_center' => '1055'],	 
-            ['name' => 'Faturamento','local'=> 'Hospital Unimed', 'cost_center' => '1205'],
-            ['name' => 'Financeiro','local'=> 'Hospital Unimed', 'cost_center' => '535'],	
-            ['name' => 'Fisioterapia','local'=> 'Hospital Unimed', 'cost_center' => '935'],	
-            ['name' => 'Hotelaria','local'=> 'Hospital Unimed', 'cost_center' => '1085']      
+            ['sigla' => 'NDH', 'name' => 'Atenção Integral a Saúde','unity_id'=> '1','cost_center' => '730'],
+            ['sigla' => 'AGT', 'name' => 'Agência Transfusional','unity_id'=> '1','cost_center' => '1025'],
+            ['sigla' => 'AUD', 'name' => 'Auditoria de Enfermagen','unity_id'=> '1','cost_center' => '461'],
+            ['sigla' => 'ADT', 'name' => 'Auditorio HU','unity_id'=> '1', 'cost_center' => '1275'],	
+            ['sigla' => 'BER', 'name' => 'Berçario','unity_id'=> '1', 'cost_center' => '840'],	
+            ['sigla' => 'CAL', 'name' => 'Caldeira','unity_id'=> '1', 'cost_center' => '1305'],	 
+            ['sigla' => 'CCIH', 'name' => 'CCIH','unity_id'=> '1', 'cost_center' => '804'],	
+            ['sigla' => 'CDI', 'name' => 'CDI - Coordenação','unity_id'=> '1', 'cost_center' => '960'],	
+            ['sigla' => 'CDI', 'name' => 'CDI - Densitometria Ossea','unity_id'=> '1', 'cost_center' => '985'],	
+            ['sigla' => 'CDI', 'name' => 'CDI - Estar (Técnicos/Médicos)','unity_id'=> '1', 'cost_center' => '1000'],	
+            ['sigla' => 'CDI', 'name' => 'CDI - Exames Endoscópicos','unity_id'=> '1', 'cost_center' => '915'],	
+            ['sigla' => 'CDI', 'name' => 'CDI - Laudos','unity_id'=> '1', 'cost_center' => '995'],	
+            ['sigla' => 'CDI', 'name' => 'CDI - Mamografia','unity_id'=> '1', 'cost_center' => '975'],	
+            ['sigla' => 'CDI', 'name' => 'CDI - Raio X','unity_id'=> '1', 'cost_center' => '970'],	
+            ['sigla' => 'CDI', 'name' => 'CDI - Recepção','unity_id'=> '1', 'cost_center' => '990'],	
+            ['sigla' => 'CDI', 'name' => 'CDI - Ressonância','unity_id'=> '1', 'cost_center' => '1005'],	
+            ['sigla' => 'CDI', 'name' => 'CDI - Tomografia','unity_id'=> '1', 'cost_center' => '965'],	
+            ['sigla' => 'CDI', 'name' => 'CDI - Ultrassonografia','unity_id'=> '1', 'cost_center' => '980'],	
+            ['sigla' => 'AGE', 'name' => 'Central de Agendamentos','unity_id'=> '1', 'cost_center' => '1196'],	
+            ['sigla' => 'CC', 'name' => 'Centro Cirurgico','unity_id'=> '1', 'cost_center' => '855'],	 
+            ['sigla' => 'CO', 'name' => 'Centro Obstetrico','unity_id'=> '1', 'cost_center' => '865'],	 
+            ['sigla' => 'CME', 'name' => 'CME','unity_id'=> '1', 'cost_center' => '950'],	 
+            ['sigla' => 'COM', 'name' => 'Compras','unity_id'=> '1', 'cost_center' => '1230'],	 
+            ['sigla' => 'ENF', 'name' => 'Coordenacao Enfermagem','unity_id'=> '1', 'cost_center' => '820'],	
+            ['sigla' => 'CRP', 'name' => 'Corpo Clinico','unity_id'=> '1', 'cost_center' => '41'],	    
+            ['sigla' => 'CPAE', 'name' => 'CPAE','unity_id'=> '1', 'cost_center' => '1070'],	 
+            ['sigla' => 'NDH', 'name' => 'Nucleo Desenvolvimento Humano','unity_id'=> '1', 'cost_center' => '290'],	
+            ['sigla' => 'FAR', 'name' => 'Farmácia Central','unity_id'=> '1', 'cost_center' => '1055'],	 
+            ['sigla' => 'FAT', 'name' => 'Faturamento','unity_id'=> '1', 'cost_center' => '1205'],
+            ['sigla' => 'FIN', 'name' => 'Financeiro','unity_id'=> '1', 'cost_center' => '535'],	
+            ['sigla' => 'FIS', 'name' => 'Fisioterapia','unity_id'=> '1', 'cost_center' => '935'],	
+            ['sigla' => 'HOT', 'name' => 'Hotelaria','unity_id'=> '1', 'cost_center' => '1085']      
         ]);
         
         DB::table('equipaments')->insert([
@@ -75,6 +82,13 @@ class DatabaseSeeder extends Seeder
             'user' => 'augusto.grafen',
             'departament_id' => '1'
             ]);
+
+        DB::table('maintences')->insert([
+            'data' => '2018-08-01',
+            'obs' => 'Primeira Manutenção',
+            'equipament_id' => '1',
+            'departament_id' => '1'
+        ]);
 
 
     }

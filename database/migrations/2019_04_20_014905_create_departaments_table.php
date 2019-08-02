@@ -16,10 +16,18 @@ class CreateDepartamentsTable extends Migration
         
         Schema::create('departaments', function (Blueprint $table) {
             $table->bigIncrements('id')->unique();
+            $table->string('sigla');
             $table->string('name')->unique();
-            $table->string('local');
+            $table->unsignedInteger('unity_id');
             $table->integer('cost_center')->unique();
             $table->timestamps();
+        });
+
+        Schema::table('departaments', function (Blueprint $table) {
+            $table->foreign('unity_id')
+                        ->references('id')
+                        ->on('unities')
+                        ->onDelete('cascade');
         });
     }
 
