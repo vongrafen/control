@@ -41,6 +41,8 @@ Route::group( [ 'middleware' => 'auth'], function()
         Route::get('/manutencao/historico', 'EquipamentHistoryController@show')->name('equipamentHistory');
         Route::any('/manutencao/{id}/add', 'MaintenceController@show')->name('maintenceAdd');
         Route::any('/manutencao/add', 'MaintenceController@create')->name('maintenceCreate');
+        Route::view('/manutencao/search', 'maintence.search')->name('maintenceSearch');
+        Route::any('/manutencao/select', 'MaintenceController@select')->name('maintenceSelect');
 
 
 

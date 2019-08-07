@@ -121,4 +121,21 @@ class MaintenceController extends Controller
     {
         //
     }
+
+    public function select(Request $request)
+    {
+        $data = $request->input();
+
+        $id = Equipament::SELECT('equipaments.id')
+                ->where('equipaments.name', $data)
+                ->orwhere('equipaments.patrimony', $data)
+                ->first();
+
+        if ($id != null) {
+            return redirect()->route('maintenceAdd', [$id]);
+        } else {
+            return redirect()->route('maintenceSearch')->with('message', 'Não existem coincidencias com a pesquisa');
+        }
+         
+    }
 }

@@ -146,7 +146,7 @@ return [
                 [
                     'text' => 'Manutenção',
                     'icon' => 'wrench',
-                    'url'  => '/manutencao/add',
+                    'url'  => '/manutencao/search',
                 ],
             ],
         ],
